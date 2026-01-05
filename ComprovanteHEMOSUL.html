@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cartão do Doador de Sangue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f5fbfb;
+  --teal-dark:#0b6d72;
+  --teal:#0d9aa1;
+  --accent-green:#7fcf86;
+  --muted:#6d7d7d;
+  --text:#072829;
+  --dot:#c9d6d6;
+  --line:#d9e3e3;
+  --container-max:1100px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.page{
+  max-width:var(--container-max);
+  margin:auto;
+  padding:24px 20px 64px;
+}
+
+/* Header */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.back{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--teal-dark);
+  font-weight:600;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  background:linear-gradient(135deg,#0e8b90,#0b6d72);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:700;
+}
+
+.nav-right{
+  display:flex;
+  gap:16px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Hero */
+.hero{
+  text-align:center;
+  margin:40px 0;
+}
+
+.hero h1{
+  font-size:clamp(26px,5vw,42px);
+  margin:0;
+  color:var(--teal-dark);
+}
+
+.status{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+.status .icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:2px solid var(--accent-green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent-green);
+}
+
+.status h2{
+  margin:0;
+  color:var(--accent-green);
+}
+
+.status p{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Content */
+.section-title{
+  font-size:clamp(22px,4vw,28px);
+  color:var(--teal);
+  margin-bottom:16px;
+}
+
+.personal{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.field label{
+  font-size:11px;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.field .value{
+  font-size:16px;
+  font-weight:700;
+}
+
+/* Timeline */
+.timeline-wrap{
+  margin-top:36px;
+}
+
+.timeline-title{
+  font-size:clamp(22px,4vw,28px);
+  color:var(--teal);
+  margin-bottom:12px;
+}
+
+.timeline{
+  display:flex;
+  gap:24px;
+  padding:16px 8px;
+  overflow-x:auto;
+  position:relative;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  height:2px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--line),
+    var(--line) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.event{
+  min-width:90px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  z-index:1;
+}
+
+.event .dot{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--dot);
+  border:3px solid var(--dot);
+}
+
+.event .dot.active{
+  width:42px;
+  height:42px;
+  background:#fff;
+  border:3px solid var(--teal-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.event .date{
+  font-size:12px;
+  font-weight:700;
+  color:var(--teal-dark);
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .nav-right{ display:none; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header class="topbar">
+  <div class="back">
+    ← Voltar
+  </div>
+
+  <div class="brand">
+    <div class="logo">MS</div>
+    <strong>MSDIGITAL</strong>
+  </div>
+
+  <nav class="nav-right">
+    <div>Validações</div>
+    <div>Dúvidas</div>
+    <div>Baixar</div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Cartão do Doador de Sangue</h1>
+
+  <div class="status">
+    <div class="icon">✓</div>
+    <h2>Carteira Válida</h2>
+    <p id="verification-time">Verificado em --/--/----</p>
+  </div>
+</section>
+
+<section>
+  <h3 class="section-title">Dados pessoais</h3>
+
+  <div class="personal">
+    <div class="field">
+      <label>Nome</label>
+      <div class="value">JHEISON DOUGLAS SOUTO</div>
+    </div>
+
+    <div class="field">
+      <label>Nascimento</label>
+      <div class="value">02/07/1995</div>
+    </div>
+
+    <div class="field">
+      <label>Tipo Sanguíneo</label>
+      <div class="value">B+</div>
+    </div>
+
+    <div class="field">
+      <label>CPF</label>
+      <div class="value">033.355.841-39</div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-wrap">
+  <h4 class="timeline-title">Últimas doações</h4>
+
+  <div class="timeline">
+    <div class="event">
+      <div class="dot active">📅</div>
+      <div class="date">05/01/2026</div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="date">08/08/2025</div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="date">15/01/2025</div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="date">03/07/2024</div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+function pad(n){return n.toString().padStart(2,'0');}
+function updateTime(){
+  const d=new Date();
+  document.getElementById("verification-time").innerText=
+    `Verificado em ${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()} às ${pad(d.getHours())}:${pad(d.getMinutes())}h`;
+}
+updateTime();
+setInterval(updateTime,60000);
+</script>
+
+</body>
+</html>
